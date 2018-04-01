@@ -10,15 +10,28 @@ namespace Tech_Tips.Controllers
     public class BlogsController : Controller
     {
         // GET: Blogs
+        public ActionResult Index(int? pageIndex, string sortBy)
+        {
+            if (!pageIndex.HasValue)
+                pageIndex = 1;
+            if (String.IsNullOrWhiteSpace(sortBy))
+                sortBy = "Title";
+
+            return Content(String.Format("pageIndex={0}&sortBy={1}", pageIndex, sortBy));
+        }
+
+        // GET: Blogs/Random
         public ActionResult Random()
         {
             var blog = new Blog() {Title = "1st Blog!"};
 
             return View(blog);
-            // return Content("Tech Tips!");
-            // return HttpNotFound();
-            // return new EmptyResult();
-            // return RedirectToAction("Index", "Home", new {pageNo = 1, sortBy = "Name"});
+        }
+
+        // GET: Blogs/Edit/{id}
+        public ActionResult Edit(int id)
+        {
+            return Content("id=" + id);
         }
     }
 }
