@@ -34,6 +34,8 @@ namespace Tech_Tips.Controllers
             return Content("id=" + id);
         }
 
+        // GET: Blogs/Publish/{year}/{month}
+        [Route("Blogs/Publish/{year:regex(\\d{4})}/{month:regex(\\d{2}):range(1,12)}")]
         public ActionResult ByPublishDate(int year, int month)
         {
             return Content(String.Format("year={0}&month={1}", year, month));

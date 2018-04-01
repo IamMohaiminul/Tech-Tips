@@ -12,13 +12,7 @@ namespace Tech_Tips
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-
-            routes.MapRoute(
-                name: "BlogsByPublishDate",
-                url: "Blogs/Publish/{year}/{month}",
-                defaults: new { controller = "Blogs", action = "ByPublishDate" },
-                constraints: new { year = @"\d{4}", month = @"\d{2}" }
-            );
+            routes.MapMvcAttributeRoutes();
 
             routes.MapRoute(
                 name: "Default",
