@@ -33,5 +33,10 @@ namespace Tech_Tips.Controllers
         {
             return Content("id=" + id);
         }
+
+        public ActionResult ByPublishDate(int year, int month)
+        {
+            return Content(String.Format("year={0}&month={1}", year, month));
+        }
     }
 }
