@@ -15,6 +15,10 @@ namespace Tech_Tips.Controllers
             var blog = new Blog() {Title = "1st Blog!"};
 
             return View(blog);
+            // return Content("Tech Tips!");
+            // return HttpNotFound();
+            // return new EmptyResult();
+            // return RedirectToAction("Index", "Home", new {pageNo = 1, sortBy = "Name"});
         }
     }
 }
