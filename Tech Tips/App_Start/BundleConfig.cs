@@ -24,7 +24,7 @@ namespace Tech_Tips
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                      "~/Content/lumen-bootstrap.css",
                       "~/Content/site.css"));
         }
     }
