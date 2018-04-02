@@ -5,4 +5,25 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@Model.Blog.Title</h2>
+@*
+    This is a comments can do multiple lines!!!
+*@
+
+@{
+    var className = Model.Articles.Count > 0 ? "text-primary" : null;
+}
+
+<h2 class="@className">@Model.Blog.Title</h2>
+@if (Model.Articles.Count == 0)
+{
+    <text>There is no article related this blog!</text>
+}
+else
+{
+    <ul>
+        @foreach (var article in Model.Articles)
+        {
+            <li>@article.Title</li>
+        }
+    </ul>
+}
