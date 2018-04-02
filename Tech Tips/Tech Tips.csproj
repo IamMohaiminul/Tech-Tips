@@ -197,9 +197,31 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804020942281_InitialModel.cs" />
+    <Compile Include="Migrations\201804020942281_InitialModel.Designer.cs">
+      <DependentUpon>201804020942281_InitialModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804020944110_BlogModel.cs" />
+    <Compile Include="Migrations\201804020944110_BlogModel.Designer.cs">
+      <DependentUpon>201804020944110_BlogModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804020951280_AddDescriptionToBlogModel.cs" />
+    <Compile Include="Migrations\201804020951280_AddDescriptionToBlogModel.Designer.cs">
+      <DependentUpon>201804020951280_AddDescriptionToBlogModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804020956090_CategoryModel.cs" />
+    <Compile Include="Migrations\201804020956090_CategoryModel.Designer.cs">
+      <DependentUpon>201804020956090_CategoryModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804020957466_AddCategoryToBlogModel.cs" />
+    <Compile Include="Migrations\201804020957466_AddCategoryToBlogModel.Designer.cs">
+      <DependentUpon>201804020957466_AddCategoryToBlogModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Article.cs" />
     <Compile Include="Models\Blog.cs" />
+    <Compile Include="Models\Category.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -286,6 +308,23 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201804020942281_InitialModel.resx">
+      <DependentUpon>201804020942281_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804020944110_BlogModel.resx">
+      <DependentUpon>201804020944110_BlogModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804020951280_AddDescriptionToBlogModel.resx">
+      <DependentUpon>201804020951280_AddDescriptionToBlogModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804020956090_CategoryModel.resx">
+      <DependentUpon>201804020956090_CategoryModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804020957466_AddCategoryToBlogModel.resx">
+      <DependentUpon>201804020957466_AddCategoryToBlogModel.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
