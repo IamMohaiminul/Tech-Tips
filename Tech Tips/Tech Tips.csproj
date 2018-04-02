@@ -217,6 +217,10 @@
     <Compile Include="Migrations\201804020957466_AddCategoryToBlogModel.Designer.cs">
       <DependentUpon>201804020957466_AddCategoryToBlogModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804021103578_FixCategoryIdFromIntToByteInCategoryModel.cs" />
+    <Compile Include="Migrations\201804021103578_FixCategoryIdFromIntToByteInCategoryModel.Designer.cs">
+      <DependentUpon>201804021103578_FixCategoryIdFromIntToByteInCategoryModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Article.cs" />
@@ -324,6 +328,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804020957466_AddCategoryToBlogModel.resx">
       <DependentUpon>201804020957466_AddCategoryToBlogModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804021103578_FixCategoryIdFromIntToByteInCategoryModel.resx">
+      <DependentUpon>201804021103578_FixCategoryIdFromIntToByteInCategoryModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
