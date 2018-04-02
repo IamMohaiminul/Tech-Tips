@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -9,26 +10,30 @@ namespace Tech_Tips.Controllers
 {
     public class ArticlesController : Controller
     {
-        private static IEnumerable<Article> GetArticles()
+        private ApplicationDbContext _context;
+
+        public ArticlesController()
         {
-            return new List<Article>()
-            {
-                new Article() {Id = 1, Title = "1st Article!"},
-                new Article() {Id = 2, Title = "2nd Article!"}
-            };
+            _context = new ApplicationDbContext();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            //base.Dispose(disposing);
+            _context.Dispose();
         }
 
         // GET: Articles
         public ActionResult Index()
         {
-            var articles = GetArticles();
+            var articles = _context.Articles.Include(c => c.Category).ToList();
             return View(articles);
         }
 
         // GET: Articles/Details/5
         public ActionResult Details(int id)
         {
-            var article = GetArticles().SingleOrDefault(c => c.Id == id);
+            var article = _context.Articles.Include(c => c.Category).SingleOrDefault(c => c.Id == id);
 
             if (article == null)
                 return HttpNotFound();

@@ -192,6 +192,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ArticlesController.cs" />
     <Compile Include="Controllers\BlogsController.cs" />
+    <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -228,6 +229,26 @@
     <Compile Include="Migrations\201804021203162_ApplyDataAnnotationsToTitleInBlogModel.cs" />
     <Compile Include="Migrations\201804021203162_ApplyDataAnnotationsToTitleInBlogModel.Designer.cs">
       <DependentUpon>201804021203162_ApplyDataAnnotationsToTitleInBlogModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804021615347_ArticleModel.cs" />
+    <Compile Include="Migrations\201804021615347_ArticleModel.Designer.cs">
+      <DependentUpon>201804021615347_ArticleModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804021616385_AddDescriptionToArticleModel.cs" />
+    <Compile Include="Migrations\201804021616385_AddDescriptionToArticleModel.Designer.cs">
+      <DependentUpon>201804021616385_AddDescriptionToArticleModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804021618159_AddCategoryToArticleModel.cs" />
+    <Compile Include="Migrations\201804021618159_AddCategoryToArticleModel.Designer.cs">
+      <DependentUpon>201804021618159_AddCategoryToArticleModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804021620098_ApplyDataAnnotationsToTitleInArticleModel.cs" />
+    <Compile Include="Migrations\201804021620098_ApplyDataAnnotationsToTitleInArticleModel.Designer.cs">
+      <DependentUpon>201804021620098_ApplyDataAnnotationsToTitleInArticleModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804021637400_ApplyDataAnnotationsToNameInCategoryModel.cs" />
+    <Compile Include="Migrations\201804021637400_ApplyDataAnnotationsToNameInCategoryModel.Designer.cs">
+      <DependentUpon>201804021637400_ApplyDataAnnotationsToNameInCategoryModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -304,6 +325,7 @@
     <Content Include="Views\Blogs\Index.cshtml" />
     <Content Include="Views\Articles\Details.cshtml" />
     <Content Include="Views\Blogs\Details.cshtml" />
+    <Content Include="Views\Categories\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -345,6 +367,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804021203162_ApplyDataAnnotationsToTitleInBlogModel.resx">
       <DependentUpon>201804021203162_ApplyDataAnnotationsToTitleInBlogModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804021615347_ArticleModel.resx">
+      <DependentUpon>201804021615347_ArticleModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804021616385_AddDescriptionToArticleModel.resx">
+      <DependentUpon>201804021616385_AddDescriptionToArticleModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804021618159_AddCategoryToArticleModel.resx">
+      <DependentUpon>201804021618159_AddCategoryToArticleModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804021620098_ApplyDataAnnotationsToTitleInArticleModel.resx">
+      <DependentUpon>201804021620098_ApplyDataAnnotationsToTitleInArticleModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804021637400_ApplyDataAnnotationsToNameInCategoryModel.resx">
+      <DependentUpon>201804021637400_ApplyDataAnnotationsToNameInCategoryModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
