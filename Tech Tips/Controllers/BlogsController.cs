@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -31,7 +32,7 @@ namespace Tech_Tips.Controllers
             if (string.IsNullOrWhiteSpace(sortBy))
                 sortBy = "Title";
 
-            var blogs = _context.Blogs.ToList();
+            var blogs = _context.Blogs.Include(b => b.Category).ToList();
 
             return View(blogs);
         }
@@ -39,7 +40,7 @@ namespace Tech_Tips.Controllers
         // GET: Blogs/Details/5
         public ActionResult Details(int id)
         {
-            var blog = _context.Blogs.SingleOrDefault(c => c.Id == id);
+            var blog = _context.Blogs.Include(b => b.Category).SingleOrDefault(b => b.Id == id);
 
             if (blog == null)
                 return HttpNotFound();
