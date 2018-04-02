@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Tech_Tips.Models;
+using Tech_Tips.ViewModels;
 
 namespace Tech_Tips.Controllers
 {
@@ -24,11 +25,19 @@ namespace Tech_Tips.Controllers
         public ActionResult Random()
         {
             var blog = new Blog() {Title = "1st Blog!"};
-            
-            ViewData["Blog"] = blog;
-            ViewBag.Blog = blog;
+            var articles = new List<Article>()
+            {
+                new Article() {Title = "1st Article!"},
+                new Article() {Title = "2nd Article!"}
+            };
 
-            return View(blog);
+            var randomBlogViewModel = new RandomBlogViewModel()
+            {
+                Blog = blog,
+                Articles = articles
+            };
+
+            return View(randomBlogViewModel);
         }
 
         // GET: Blogs/Edit/{id}

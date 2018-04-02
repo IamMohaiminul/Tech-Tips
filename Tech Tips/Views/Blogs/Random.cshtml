@@ -1,11 +1,8 @@
-﻿@using Tech_Tips.Models
-@model Tech_Tips.Models.Blog
+﻿@model Tech_Tips.ViewModels.RandomBlogViewModel
 
 @{
     ViewBag.Title = "Random";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@Model.Title</h2>
-<h3>@(((Blog)ViewData["Blog"]).Title)​</h3>
-<h3>@ViewBag.Blog.Title​</h3>
+<h2>@Model.Blog.Title</h2>
