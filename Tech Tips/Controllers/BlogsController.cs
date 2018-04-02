@@ -10,13 +10,17 @@ namespace Tech_Tips.Controllers
 {
     public class BlogsController : Controller
     {
-        private static IEnumerable<Blog> GetBlogs()
+        private ApplicationDbContext _context;
+
+        public BlogsController()
         {
-            return new List<Blog>()
-            {
-                new Blog() {Id = 1, Title = "1st Blog!"},
-                new Blog() {Id = 2, Title = "2nd Blog!"}
-            };
+            _context = new ApplicationDbContext();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            //base.Dispose(disposing);
+            _context.Dispose();
         }
 
         // GET: Blogs
@@ -27,7 +31,7 @@ namespace Tech_Tips.Controllers
             if (string.IsNullOrWhiteSpace(sortBy))
                 sortBy = "Title";
 
-            var blogs = GetBlogs();
+            var blogs = _context.Blogs.ToList();
 
             return View(blogs);
         }
@@ -35,7 +39,7 @@ namespace Tech_Tips.Controllers
         // GET: Blogs/Details/5
         public ActionResult Details(int id)
         {
-            var blog = GetBlogs().SingleOrDefault(c => c.Id == id);
+            var blog = _context.Blogs.SingleOrDefault(c => c.Id == id);
 
             if (blog == null)
                 return HttpNotFound();
