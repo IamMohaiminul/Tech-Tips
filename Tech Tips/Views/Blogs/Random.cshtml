@@ -1,4 +1,5 @@
-﻿@model Tech_Tips.Models.Blog
+﻿@using Tech_Tips.Models
+@model Tech_Tips.Models.Blog
 
 @{
     ViewBag.Title = "Random";
@@ -6,4 +7,5 @@
 }
 
 <h2>@Model.Title</h2>
-
+<h3>@(((Blog)ViewData["Blog"]).Title)​</h3>
+<h3>@ViewBag.Blog.Title​</h3>

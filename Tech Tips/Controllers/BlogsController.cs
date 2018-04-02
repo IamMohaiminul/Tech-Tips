@@ -24,6 +24,9 @@ namespace Tech_Tips.Controllers
         public ActionResult Random()
         {
             var blog = new Blog() {Title = "1st Blog!"};
+            
+            ViewData["Blog"] = blog;
+            ViewBag.Blog = blog;
 
             return View(blog);
         }
