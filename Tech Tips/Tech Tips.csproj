@@ -225,6 +225,10 @@
     <Compile Include="Migrations\201804021109108_PopulateCategories.Designer.cs">
       <DependentUpon>201804021109108_PopulateCategories.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804021203162_ApplyDataAnnotationsToTitleInBlogModel.cs" />
+    <Compile Include="Migrations\201804021203162_ApplyDataAnnotationsToTitleInBlogModel.Designer.cs">
+      <DependentUpon>201804021203162_ApplyDataAnnotationsToTitleInBlogModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Article.cs" />
@@ -338,6 +342,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804021109108_PopulateCategories.resx">
       <DependentUpon>201804021109108_PopulateCategories.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804021203162_ApplyDataAnnotationsToTitleInBlogModel.resx">
+      <DependentUpon>201804021203162_ApplyDataAnnotationsToTitleInBlogModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
