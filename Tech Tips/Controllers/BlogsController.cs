@@ -10,21 +10,43 @@ namespace Tech_Tips.Controllers
 {
     public class BlogsController : Controller
     {
+        private static IEnumerable<Blog> GetBlogs()
+        {
+            return new List<Blog>()
+            {
+                new Blog() {Id = 1, Title = "1st Blog!"},
+                new Blog() {Id = 2, Title = "2nd Blog!"}
+            };
+        }
+
         // GET: Blogs
         public ActionResult Index(int? pageIndex, string sortBy)
         {
             if (!pageIndex.HasValue)
                 pageIndex = 1;
-            if (String.IsNullOrWhiteSpace(sortBy))
+            if (string.IsNullOrWhiteSpace(sortBy))
                 sortBy = "Title";
 
-            return Content(String.Format("pageIndex={0}&sortBy={1}", pageIndex, sortBy));
+            var blogs = GetBlogs();
+
+            return View(blogs);
+        }
+
+        // GET: Blogs/Details/5
+        public ActionResult Details(int id)
+        {
+            var blog = GetBlogs().SingleOrDefault(c => c.Id == id);
+
+            if (blog == null)
+                return HttpNotFound();
+
+            return View(blog);
         }
 
         // GET: Blogs/Random
         public ActionResult Random()
         {
-            var blog = new Blog() {Title = "1st Blog!"};
+            var blog = new Blog() { Title = "1st Blog!" };
             var articles = new List<Article>()
             {
                 new Article() {Title = "1st Article!"},

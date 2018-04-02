@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Tech_Tips.Models.Article>
+
+@{
+    ViewBag.Title = "Index | Article";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>List of Article</h2>
+
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink(item.Title, "Details", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
