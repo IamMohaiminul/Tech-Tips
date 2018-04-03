@@ -61,6 +61,22 @@ namespace Tech_Tips.Controllers
             return View(createBlogViewModel);
         }
 
+        // POST: Blogs/Create
+        [HttpPost]
+        public ActionResult Create(Blog blog)
+        {
+            try
+            {
+                // TODO: Add insert logic here
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
         // GET: Blogs/Random
         public ActionResult Random()
         {
