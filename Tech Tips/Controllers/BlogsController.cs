@@ -53,12 +53,12 @@ namespace Tech_Tips.Controllers
         {
             var categories = _context.Categories.ToList();
 
-            var createBlogViewModel = new CreateBlogViewModel()
+            var blogFormViewModel = new BlogFormViewModel()
             {
                 Categories = categories
             };
 
-            return View(createBlogViewModel);
+            return View("BlogForm", blogFormViewModel);
         }
 
         // POST: Blogs/Create
@@ -74,8 +74,25 @@ namespace Tech_Tips.Controllers
             }
             catch
             {
-                return View();
+                return View("BlogForm");
             }
+        }
+
+        // GET: Blogs/Edit/5
+        public ActionResult Edit(int id)
+        {
+            var blog = _context.Blogs.Include(b => b.Category).SingleOrDefault(b => b.Id == id);
+
+            if (blog == null)
+                return HttpNotFound();
+
+            var blogFormViewModel = new BlogFormViewModel()
+            {
+                Categories = _context.Categories.ToList(),
+                Blog = blog
+            };
+
+            return View("BlogForm", blogFormViewModel);
         }
 
         // GET: Blogs/Random
@@ -95,12 +112,6 @@ namespace Tech_Tips.Controllers
             };
 
             return View(randomBlogViewModel);
-        }
-
-        // GET: Blogs/Edit/{id}
-        public ActionResult Edit(int id)
-        {
-            return Content("id=" + id);
         }
 
         // GET: Blogs/Publish/{year}/{month}
