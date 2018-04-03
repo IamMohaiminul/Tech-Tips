@@ -250,6 +250,10 @@
     <Compile Include="Migrations\201804021637400_ApplyDataAnnotationsToNameInCategoryModel.Designer.cs">
       <DependentUpon>201804021637400_ApplyDataAnnotationsToNameInCategoryModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804031631305_ApplyDataAnnotationsToIdInCategoryModel.cs" />
+    <Compile Include="Migrations\201804031631305_ApplyDataAnnotationsToIdInCategoryModel.Designer.cs">
+      <DependentUpon>201804031631305_ApplyDataAnnotationsToIdInCategoryModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Article.cs" />
@@ -259,6 +263,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\ArticleFormViewModel.cs" />
     <Compile Include="ViewModels\BlogFormViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -322,9 +327,10 @@
     <Content Include="Views\Shared\_NavBarPartial.cshtml" />
     <Content Include="Views\Articles\Index.cshtml" />
     <Content Include="Views\Blogs\Index.cshtml" />
-    <Content Include="Views\Articles\Details.cshtml" />
     <Content Include="Views\Categories\Index.cshtml" />
     <Content Include="Views\Blogs\BlogForm.cshtml" />
+    <Content Include="Views\Articles\ArticleForm.cshtml" />
+    <Content Include="Views\Categories\CategoryForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -381,6 +387,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804021637400_ApplyDataAnnotationsToNameInCategoryModel.resx">
       <DependentUpon>201804021637400_ApplyDataAnnotationsToNameInCategoryModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804031631305_ApplyDataAnnotationsToIdInCategoryModel.resx">
+      <DependentUpon>201804031631305_ApplyDataAnnotationsToIdInCategoryModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

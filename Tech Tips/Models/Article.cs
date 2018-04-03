@@ -16,6 +16,7 @@ namespace Tech_Tips.Models
         [Display(Name = "Article Description")]
         public string Description { get; set; }
         public Category Category { get; set; }
+        [Display(Name = "Article Category")]
         public byte CategoryId { get; set; }
     }
 }

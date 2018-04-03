@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Tech_Tips.Models;
+using Tech_Tips.ViewModels;
 
 namespace Tech_Tips.Controllers
 {
@@ -30,14 +31,64 @@ namespace Tech_Tips.Controllers
             return View(articles);
         }
 
-        // GET: Articles/Details/5
-        public ActionResult Details(int id)
+        // GET: Articles/Create
+        public ActionResult Create()
         {
-            var article = _context.Articles.Include(c => c.Category).SingleOrDefault(c => c.Id == id);
+            var categories = _context.Categories.ToList();
+
+            var articleFormViewModel = new ArticleFormViewModel()
+            {
+                Categories = categories
+            };
+
+            return View("ArticleForm", articleFormViewModel);
+        }
+
+        // GET: Articles/Edit/5
+        public ActionResult Edit(int id)
+        {
+            var article = _context.Articles.Include(b => b.Category).SingleOrDefault(b => b.Id == id);
 
             if (article == null)
                 return HttpNotFound();
-            return View(article);
+
+            var articleFormViewModel = new ArticleFormViewModel()
+            {
+                Categories = _context.Categories.ToList(),
+                Article = article
+            };
+
+            return View("ArticleForm", articleFormViewModel);
+        }
+
+        // POST: Articles/Save
+        [HttpPost]
+        public ActionResult Save(Article article)
+        {
+            try
+            {
+                // TODO: Add insert / edit logic here
+                if (article.Id == 0)
+                {
+                    _context.Articles.Add(article);
+                }
+                else
+                {
+                    var articleInDb = _context.Articles.Single(model => model.Id == article.Id);
+                    //TryUpdateModel(blogInDb);
+                    articleInDb.Title = article.Title;
+                    articleInDb.Description = article.Description;
+                    articleInDb.CategoryId = article.CategoryId;
+                }
+
+                _context.SaveChanges();
+
+                return RedirectToAction("Index", "Articles");
+            }
+            catch
+            {
+                return View("ArticleForm");
+            }
         }
     }
 }

@@ -25,13 +25,8 @@ namespace Tech_Tips.Controllers
         }
 
         // GET: Blogs
-        public ActionResult Index(int? pageIndex, string sortBy)
+        public ActionResult Index()
         {
-            if (!pageIndex.HasValue)
-                pageIndex = 1;
-            if (string.IsNullOrWhiteSpace(sortBy))
-                sortBy = "Title";
-
             var blogs = _context.Blogs.Include(b => b.Category).ToList();
 
             return View(blogs);
@@ -73,7 +68,7 @@ namespace Tech_Tips.Controllers
         {
             try
             {
-                // TODO: Add insert logic here
+                // TODO: Add insert / edit logic here
                 if (blog.Id == 0)
                 {
                     _context.Blogs.Add(blog);
@@ -84,6 +79,7 @@ namespace Tech_Tips.Controllers
                     //TryUpdateModel(blogInDb);
                     blogInDb.Title = blog.Title;
                     blogInDb.Description = blog.Description;
+                    blogInDb.CategoryId = blog.CategoryId;
                 }
 
                 _context.SaveChanges();

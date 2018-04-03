@@ -7,6 +7,10 @@
 
 <h2>List of Category</h2>
 
+<div>
+    @Html.ActionLink("Create Category", "Create", "Categories", null, new { @class = "btn btn-default" })
+</div>
+<br />
 <table class="table table-bordered table-hover">
     <tr>
         <th>
@@ -14,12 +18,13 @@
         </th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink(item.Name, "Edit", new { id = item.Id })
+            </td>
+        </tr>
+    }
 
 </table>
