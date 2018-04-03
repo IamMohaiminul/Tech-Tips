@@ -29,6 +29,7 @@
             @Html.LabelFor(model => model.Blog.CategoryId, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownListFor(model => model.Blog.CategoryId, new SelectList(Model.Categories, "Id", "Name"), "Select a Category", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Blog.CategoryId)
             </div>
         </div>
         
