@@ -51,7 +51,14 @@ namespace Tech_Tips.Controllers
         // GET: Blogs/Create
         public ActionResult Create()
         {
-            return View();
+            var categories = _context.Categories.ToList();
+
+            var createBlogViewModel = new CreateBlogViewModel()
+            {
+                Categories = categories
+            };
+
+            return View(createBlogViewModel);
         }
 
         // GET: Blogs/Random
