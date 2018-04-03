@@ -48,6 +48,12 @@ namespace Tech_Tips.Controllers
             return View(blog);
         }
 
+        // GET: Blogs/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
         // GET: Blogs/Random
         public ActionResult Random()
         {
