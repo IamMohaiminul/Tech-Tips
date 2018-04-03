@@ -64,6 +64,7 @@ namespace Tech_Tips.Controllers
 
         // POST: Blogs/Save
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Blog blog)
         {
             if (!ModelState.IsValid)
