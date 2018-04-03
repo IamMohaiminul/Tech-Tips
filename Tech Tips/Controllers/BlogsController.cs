@@ -68,8 +68,9 @@ namespace Tech_Tips.Controllers
             try
             {
                 // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
+                _context.Blogs.Add(blog);
+                _context.SaveChanges();
+                return RedirectToAction("Index", "Blogs");
             }
             catch
             {
