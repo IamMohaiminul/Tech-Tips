@@ -260,7 +260,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\BlogFormViewModel.cs" />
-    <Compile Include="ViewModels\RandomBlogViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -320,12 +319,10 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Blogs\Random.cshtml" />
     <Content Include="Views\Shared\_NavBarPartial.cshtml" />
     <Content Include="Views\Articles\Index.cshtml" />
     <Content Include="Views\Blogs\Index.cshtml" />
     <Content Include="Views\Articles\Details.cshtml" />
-    <Content Include="Views\Blogs\Details.cshtml" />
     <Content Include="Views\Categories\Index.cshtml" />
     <Content Include="Views\Blogs\BlogForm.cshtml" />
   </ItemGroup>

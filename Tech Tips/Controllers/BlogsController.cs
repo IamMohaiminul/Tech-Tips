@@ -37,17 +37,6 @@ namespace Tech_Tips.Controllers
             return View(blogs);
         }
 
-        // GET: Blogs/Details/5
-        public ActionResult Details(int id)
-        {
-            var blog = _context.Blogs.Include(b => b.Category).SingleOrDefault(b => b.Id == id);
-
-            if (blog == null)
-                return HttpNotFound();
-
-            return View(blog);
-        }
-
         // GET: Blogs/Create
         public ActionResult Create()
         {
@@ -105,32 +94,6 @@ namespace Tech_Tips.Controllers
             {
                 return View("BlogForm");
             }
-        }
-
-        // GET: Blogs/Random
-        public ActionResult Random()
-        {
-            var blog = new Blog() { Title = "1st Blog!" };
-            var articles = new List<Article>()
-            {
-                new Article() {Title = "1st Article!"},
-                new Article() {Title = "2nd Article!"}
-            };
-
-            var randomBlogViewModel = new RandomBlogViewModel()
-            {
-                Blog = blog,
-                Articles = articles
-            };
-
-            return View(randomBlogViewModel);
-        }
-
-        // GET: Blogs/Publish/{year}/{month}
-        [Route("Blogs/Publish/{year:regex(\\d{4})}/{month:regex(\\d{2}):range(1,12)}")]
-        public ActionResult ByPublishDate(int year, int month)
-        {
-            return Content(String.Format("year={0}&month={1}", year, month));
         }
     }
 }
