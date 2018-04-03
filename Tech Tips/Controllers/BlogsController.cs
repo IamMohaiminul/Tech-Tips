@@ -61,23 +61,6 @@ namespace Tech_Tips.Controllers
             return View("BlogForm", blogFormViewModel);
         }
 
-        // POST: Blogs/Create
-        [HttpPost]
-        public ActionResult Create(Blog blog)
-        {
-            try
-            {
-                // TODO: Add insert logic here
-                _context.Blogs.Add(blog);
-                _context.SaveChanges();
-                return RedirectToAction("Index", "Blogs");
-            }
-            catch
-            {
-                return View("BlogForm");
-            }
-        }
-
         // GET: Blogs/Edit/5
         public ActionResult Edit(int id)
         {
@@ -93,6 +76,35 @@ namespace Tech_Tips.Controllers
             };
 
             return View("BlogForm", blogFormViewModel);
+        }
+
+        // POST: Blogs/Save
+        [HttpPost]
+        public ActionResult Save(Blog blog)
+        {
+            try
+            {
+                // TODO: Add insert logic here
+                if (blog.Id == 0)
+                {
+                    _context.Blogs.Add(blog);
+                }
+                else
+                {
+                    var blogInDb = _context.Blogs.Single(model => model.Id == blog.Id);
+                    //TryUpdateModel(blogInDb);
+                    blogInDb.Title = blog.Title;
+                    blogInDb.Description = blog.Description;
+                }
+
+                _context.SaveChanges();
+
+                return RedirectToAction("Index", "Blogs");
+            }
+            catch
+            {
+                return View("BlogForm");
+            }
         }
 
         // GET: Blogs/Random

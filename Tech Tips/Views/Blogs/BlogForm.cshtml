@@ -7,7 +7,7 @@
 
 <h2>Blog Details</h2>
 
-@using (Html.BeginForm("Create", "Blogs"))
+@using (Html.BeginForm("Save", "Blogs"))
 {
     <div class="form-horizontal">
         <div class="form-group">
@@ -30,6 +30,8 @@
                 @Html.DropDownListFor(model => model.Blog.CategoryId, new SelectList(Model.Categories, "Id", "Name"), "Select a Category", new { @class = "form-control" })
             </div>
         </div>
+        
+        @Html.HiddenFor(model => model.Blog.Id)
 
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
@@ -40,5 +42,5 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index", "Blogs")
+    @Html.ActionLink("Back to Blog List", "Index", "Blogs")
 </div>
