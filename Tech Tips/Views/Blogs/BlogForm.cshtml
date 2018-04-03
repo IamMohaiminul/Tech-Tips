@@ -14,6 +14,7 @@
             @Html.LabelFor(model => model.Blog.Title, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.TextBoxFor(model => model.Blog.Title, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Blog.Title)
             </div>
         </div>
 

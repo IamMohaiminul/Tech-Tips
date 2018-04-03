@@ -66,6 +66,17 @@ namespace Tech_Tips.Controllers
         [HttpPost]
         public ActionResult Save(Blog blog)
         {
+            if (!ModelState.IsValid)
+            {
+                var blogFormViewModel = new BlogFormViewModel()
+                {
+                    Categories = _context.Categories.ToList(),
+                    Blog = blog
+                };
+
+                return View("BlogForm", blogFormViewModel);
+            }
+
             try
             {
                 // TODO: Add insert / edit logic here
