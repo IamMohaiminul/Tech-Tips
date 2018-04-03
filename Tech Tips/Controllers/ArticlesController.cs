@@ -63,6 +63,7 @@ namespace Tech_Tips.Controllers
 
         // POST: Articles/Save
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Article article)
         {
             try

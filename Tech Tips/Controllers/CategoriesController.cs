@@ -49,6 +49,7 @@ namespace Tech_Tips.Controllers
 
         // POST: Blogs/Save
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Category category)
         {
             try
