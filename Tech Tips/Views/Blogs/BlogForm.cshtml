@@ -32,7 +32,7 @@
                 @Html.ValidationMessageFor(model => model.Blog.CategoryId)
             </div>
         </div>
-        
+
         @Html.HiddenFor(model => model.Blog.Id)
 
         <div class="form-group">
@@ -46,3 +46,8 @@
 <div>
     @Html.ActionLink("Back to Blog List", "Index", "Blogs")
 </div>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}
